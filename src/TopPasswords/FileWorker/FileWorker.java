@@ -1,12 +1,10 @@
 package TopPasswords.FileWorker;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 public class FileWorker {
-    public static ArrayList<Integer> getPassword (String fileName) throws IOException {
+    public static ArrayList<Integer> getPasswordFromFile (String fileName) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(fileName));
         ArrayList<String> arrayString = new ArrayList<String>();
         String line = null;
@@ -21,7 +19,7 @@ public class FileWorker {
         return passwords;
     }
 
-    public static Map<Integer, Integer> getMostFamousPassword(ArrayList<Integer> passwords){
+    public static Map<Integer, Integer> getPasswords(ArrayList<Integer> passwords){
         Map<Integer,Integer> integersCount = new HashMap<>();
         for (Integer i : passwords){
             if (!integersCount.containsKey(i))
@@ -31,4 +29,6 @@ public class FileWorker {
         }
         return integersCount;
     }
+
+
 }

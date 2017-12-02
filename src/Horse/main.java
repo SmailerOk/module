@@ -1,16 +1,20 @@
 package Horse;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) {
         System.out.println("Input Horse position: x & y");
         Scanner scanner = new Scanner(System.in);
-        int x = scanner.nextInt();
-        int y = scanner.nextInt();
+        ArrayList<Integer> moves = new ArrayList<Integer>();
+        moves.add(scanner.nextInt());
+        moves.add(scanner.nextInt());
         System.out.println("Where horse should go? x & y");
-        int x1 = scanner.nextInt();
-        int y1 = scanner.nextInt();
-        Horse.horseMove(x, y, x1, y1);
+        moves.add(scanner.nextInt());
+        moves.add(scanner.nextInt());
+        if (Horse.inputValidation(moves)){
+            Horse.horseMove(moves);
+        } else System.out.println("You enter incorrect data");
     }
 }
